@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prog concerts</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #111, #1f1f1f);
+        color: white;
+        text-align: center;
+    }
+
+    header {
+        padding: 30px 20px 10px 20px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+    }
+
+    .selector-container {
+        margin-bottom: 25px;
+    }
+
+    select {
+        padding: 12px 20px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: none;
+        background-color: #2c2c2c;
+        color: white;
+        cursor: pointer;
+        transition: 0.3s ease;
+        min-width: 220px;
+    }
+
+    select:hover {
+        background-color: #3a3a3a;
+    }
+
+    .calendar-container {
+        display: flex;
+        justify-content: center;
+        padding: 0 20px 40px 20px;
+    }
+
+    iframe {
+        width: 100%;
+        max-width: 1000px;
+        height: 75vh;
+        border-radius: 12px;
+        border: none;
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
+        background: white;
+    }
+
+    footer {
+        padding: 15px;
+        font-size: 0.8rem;
+        color: #aaa;
+    }
+
+    /* Responsive mobile */
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 1.8rem;
+        }
+
+        iframe {
+            height: 70vh;
+        }
+    }
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🎵 Prog concerts</h1>
+
+    <div class="selector-container">
+        <select id="calendarSelect" onchange="changeCalendar()">
+            <option value="msjfcm9us6e2qu931cqljqjm8o@group.calendar.google.com">
+                Diamant d'or
+            </option>
+            <option value="OREE_ID">Orée 85</option>
+            <option value="GRENZE_ID">Grenze</option>
+            <option value="PHARE_ID">Phare citadelle</option>
+        </select>
+    </div>
+</header>
+
+<div class="calendar-container">
+    <iframe id="calendarFrame"
+        src="https://calendar.google.com/calendar/embed?src=msjfcm9us6e2qu931cqljqjm8o@group.calendar.google.com&ctz=Europe/Paris">
+    </iframe>
+</div>
+
+<footer>
+    © 2026 - Prog concerts
+</footer>
+
+<script>
+function changeCalendar() {
+    const select = document.getElementById("calendarSelect");
+    const calendarId = select.value;
+    const iframe = document.getElementById("calendarFrame");
+
+    iframe.src = "https://calendar.google.com/calendar/embed?src=" 
+                 + calendarId 
+                 + "&ctz=Europe/Paris";
+}
+</script>
+
+</body>
+</html>
